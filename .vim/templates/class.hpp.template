@@ -6,9 +6,9 @@ class {{CLASS}} {
 public:
 
 	{{CLASS}}(void);
-	{{CLASS}}(const {{CLASS}}&)
+	{{CLASS}}(const {{CLASS}}&);
 	~{{CLASS}}(void);
-	{{CLASS}}& operator = (const {{CLASS}}& e)
+	{{CLASS}}& operator = (const {{CLASS}}& e);
 
 private:
 
