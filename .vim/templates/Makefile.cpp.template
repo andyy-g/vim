@@ -18,7 +18,7 @@ HFILES			=	$(HDIR)/
 
 SRCS			=	$(addprefix $(SRCDIR)/,$(CXXFILES))
 
-OBJS			=	$(addprefix $(OBJDIR)/,$(CXXFILES:.c=.o))
+OBJS			=	$(addprefix $(OBJDIR)/,$(CXXFILES:.cpp=.o))
 
 
 all				:	$(NAME)
