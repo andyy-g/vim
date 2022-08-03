@@ -1,0 +1,46 @@
+NAME			=	{{CURSOR}}
+
+COMPILER		=	c++
+
+FLAGS			=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wunreachable-code -g3
+
+SRCDIR			=	./srcs
+
+OBJDIR			=	./objs
+
+HDIR			=	./headers
+
+#LIBRARY		=	
+
+CXXFILES		=	
+
+HFILES			=	$(HDIR)/
+
+SRCS			=	$(addprefix $(SRCDIR)/,$(CXXFILES))
+
+OBJS			=	$(addprefix $(OBJDIR)/,$(CXXFILES:.c=.o))
+
+
+all				:	$(NAME)
+
+$(NAME)			:	$(OBJDIR) $(OBJS) $(HFILES)
+					@$(COMPILER) $(FLAGS) -I.$(HDIR) ($OBJS) -o ($NAME)
+					@echo "$(NAME) created"
+	
+$(OBJDIR)		:
+					mkdir -p $(OBJDIR)
+
+$(OBJDIR)/%.o   :   $(SRCDIR)/%.c
+                    @$(COMPILER) -o $@ -c $< $(FLAGS) -I./$(HDIR)
+
+clean           : 
+                    @$(RM) $(OBJDIR)
+                    @echo "object files removed"
+
+fclean          :   clean
+                    @$(RM) $(NAME) 
+                    @echo "$(NAME) removed"
+
+re              :   fclean all 
+
+.PHONY          :   clean fclean re all
