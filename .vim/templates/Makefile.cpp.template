@@ -14,7 +14,9 @@ HDIR			=	./headers
 
 CXXFILES		=	
 
-HFILES			=	$(HDIR)/
+HFILES			=	
+
+HEADERS			=	$(addprefix $(SRCDIR)/,$(HFILES))
 
 SRCS			=	$(addprefix $(SRCDIR)/,$(CXXFILES))
 
@@ -23,7 +25,7 @@ OBJS			=	$(addprefix $(OBJDIR)/,$(CXXFILES:.cpp=.o))
 
 all				:	$(NAME)
 
-$(NAME)			:	$(OBJDIR) $(OBJS) $(HFILES)
+$(NAME)			:	$(OBJDIR) $(OBJS) $(HEADERS)
 					@$(COMPILER) $(FLAGS) -I.$(HDIR) ($OBJS) -o ($NAME)
 					@echo "$(NAME) created"
 	
