@@ -34,11 +34,11 @@ $(OBJDIR)/%.o   :   $(SRCDIR)/%.c
                     @$(COMPILER) -o $@ -c $< $(FLAGS) -I./$(HDIR)
 
 clean           : 
-                    @$(RM) $(OBJDIR)
+                    @rm -rf $(OBJDIR)
                     @echo "object files removed"
 
 fclean          :   clean
-                    @$(RM) $(NAME) 
+                    @rm $(NAME) 
                     @echo "$(NAME) removed"
 
 re              :   fclean all 
