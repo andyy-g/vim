@@ -30,7 +30,7 @@ $(NAME)			:	$(OBJDIR) $(OBJS) $(HFILES)
 $(OBJDIR)		:
 					mkdir -p $(OBJDIR)
 
-$(OBJDIR)/%.o   :   $(SRCDIR)/%.c
+$(OBJDIR)/%.o   :   $(SRCDIR)/%.cpp
                     @$(COMPILER) -o $@ -c $< $(FLAGS) -I./$(HDIR)
 
 clean           : 
