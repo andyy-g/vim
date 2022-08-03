@@ -1,0 +1,17 @@
+#ifndef __{{MACRO_GUARD}}__
+# define __{{MACRO_GUARD}}__
+
+class {{CLASS}} {
+
+public:
+
+	{{CLASS}}(void);
+	{{CLASS}}(const {{CLASS}}&)
+	~{{CLASS}}(void);
+	{{CLASS}}& operator = (const {{CLASS}}& e)
+
+private:
+
+};
+
+#endif

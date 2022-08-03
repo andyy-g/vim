@@ -5,7 +5,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
@@ -23,6 +23,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'turbio/bracey.vim'
+Plugin 'tibabit/vim-templates'
 
 call vundle#end()            " required
 
@@ -78,6 +79,12 @@ set autoindent  " Conserve l'indentation sur une nouvelle ligne
 "set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab " Indentation 4
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 
+" Activer l'utilisation de la souris
 :se mouse+=a
 
+" Templates
+let g:tmpl_search_paths = ['~/.vim/templates']
+let g:tmpl_auto_initialize = 0
+
+" F6 pour faire apparaitre le NERDTree
 nmap <F6> :NERDTreeToggle<CR>

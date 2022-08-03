@@ -1,0 +1,10 @@
+#include <iostream>
+#include "{{CLASS}}.hpp"
+
+{{CLASS}}::{{CLASS}}(void) {
+	return ;
+}
+
+{{CLASS}}::~{{CLASS}}(void) {
+	return ;
+}
