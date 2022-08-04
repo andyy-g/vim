@@ -2,7 +2,7 @@ NAME			=	{{CURSOR}}
 
 COMPILER		=	c++
 
-FLAGS			=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wunreachable-code -g3
+FLAGS			=	-std=c++98 -Wall -Wextra -Werror -Wunreachable-code -g3
 
 SRCDIR			=	./srcs
 
@@ -12,21 +12,21 @@ HDIR			=	./headers
 
 #LIBRARY		=	
 
-CXXFILES		=	
+CPPFILES		=	
 
-HFILES			=	
+HFILES			=
 
-HEADERS			=	$(addprefix $(SRCDIR)/,$(HFILES))
+HEADERS			=	$(addprefix $(HDIR)/,$(HFILES))
 
-SRCS			=	$(addprefix $(SRCDIR)/,$(CXXFILES))
+SRCS			=	$(addprefix $(SRCDIR)/,$(CPPFILES))
 
-OBJS			=	$(addprefix $(OBJDIR)/,$(CXXFILES:.cpp=.o))
+OBJS			=	$(addprefix $(OBJDIR)/,$(CPPFILES:.cpp=.o))
 
 
 all				:	$(NAME)
 
 $(NAME)			:	$(OBJDIR) $(OBJS) $(HEADERS)
-					@$(COMPILER) $(FLAGS) -I.$(HDIR) ($OBJS) -o ($NAME)
+					@$(COMPILER) $(FLAGS) -I.$(HDIR) $(OBJS) -o $(NAME)
 					@echo "$(NAME) created"
 	
 $(OBJDIR)		:
@@ -40,7 +40,7 @@ clean           :
                     @echo "object files removed"
 
 fclean          :   clean
-                    @rm $(NAME) 
+                    @rm -rf $(NAME) 
                     @echo "$(NAME) removed"
 
 re              :   fclean all 

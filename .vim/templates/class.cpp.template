@@ -1,10 +1,26 @@
 #include <iostream>
 #include "{{CLASS}}.hpp"
 
-{{CLASS}}::{{CLASS}}(void) {
+{{CLASS}}::{{CLASS}}(void) 
+{
 	return ;
 }
 
-{{CLASS}}::~{{CLASS}}(void) {
+{{CLASS}}::{{CLASS}}(const {{CLASS}}& copy)
+{
+	(void)copy;
 	return ;
 }
+
+
+{{CLASS}}::~{{CLASS}}(void)
+{
+	return ;
+}
+
+{{CLASS}}& {{CLASS}}::operator=(const {{CLASS}}& assign)
+{
+	(void)assign;
+	return (*this);
+}
+
