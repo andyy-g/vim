@@ -8,21 +8,9 @@ call vundle#begin()
 " call vundle#begin('~/some/path/here')
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'mattn/emmet-vim'
-Plugin 'Townk/vim-autoclose'
-Plugin 'vim-scripts/closetag.vim'
-Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-endwise'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'turbio/bracey.vim'
+Plugin 'dense-analysis/ale'
 Plugin 'tibabit/vim-templates'
 
 call vundle#end()            " required
@@ -62,9 +50,6 @@ set hidden
 " Activer la coloration syntaxique
 syntax enable
 
-" Utiliser la version sombre de Solarized
-set background=dark
-
 " Choix de la police
 set guifont=Monaco:h13
 set antialias
@@ -73,11 +58,18 @@ set antialias
 :imap ;; <Esc>
 :map ;; <Esc>
 
+" Ferme automatiquement les parenthèses/guillemets
+inoremap { {<CR>}<Esc>ko
+inoremap ( ()<Esc>ha
+inoremap [ []<Esc>ha
+inoremap " ""<Esc>ha
+inoremap ' ''<Esc>ha
+inoremap ` ``<Esc>ha
+
 " Indentation
 set smartindent " Indentation intelligente
 set autoindent  " Conserve l'indentation sur une nouvelle ligne
-"set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab " Indentation 4
-set autoindent noexpandtab tabstop=4 shiftwidth=4
+set autoindent noexpandtab tabstop=4 shiftwidth=4 " Indentation de 4
 
 " Activer l'utilisation de la souris
 :se mouse+=a
