@@ -12,6 +12,9 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'dense-analysis/ale'
 Plugin 'tibabit/vim-templates'
+Plugin 'tpope/vim-fugitive'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 
 call vundle#end()            " required
 
