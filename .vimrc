@@ -13,8 +13,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'dense-analysis/ale'
 Plugin 'tibabit/vim-templates'
 Plugin 'tpope/vim-fugitive'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'pangloss/vim-javascript'    " JavaScript support
+Plugin 'leafgarland/typescript-vim' " TypeScript syntax
+Plugin 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plugin 'neoclide/coc.nvim', {'branch': 'release'} "Autocomplete
 
 call vundle#end()            " required
 
@@ -62,12 +64,12 @@ set antialias
 :map ;; <Esc>
 
 " Ferme automatiquement les parenthèses/guillemets
-inoremap { {<CR>}<Esc>ko
-inoremap ( ()<Esc>ha
-inoremap [ []<Esc>ha
-inoremap " ""<Esc>ha
-inoremap ' ''<Esc>ha
-inoremap ` ``<Esc>ha
+"inoremap { {<CR>}<Esc>ko
+"inoremap ( ()<Esc>ha
+"inoremap [ []<Esc>ha
+"inoremap " ""<Esc>ha
+"inoremap ' ''<Esc>ha
+"inoremap ` ``<Esc>ha
 
 " Indentation
 set smartindent " Indentation intelligente
@@ -80,6 +82,9 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4 " Indentation de 4
 " Templates
 let g:tmpl_search_paths = ['~/.vim/templates']
 let g:tmpl_auto_initialize = 0
+
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver']
 
 " F6 pour faire apparaitre le NERDTree
 nmap <F6> :NERDTreeToggle<CR>
