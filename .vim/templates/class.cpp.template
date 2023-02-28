@@ -12,7 +12,6 @@
 	return ;
 }
 
-
 {{CLASS}}::~{{CLASS}}(void)
 {
 	return ;
@@ -23,4 +22,3 @@
 	(void)assign;
 	return (*this);
 }
-

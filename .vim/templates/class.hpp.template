@@ -1,6 +1,8 @@
 #ifndef __{{MACRO_GUARD}}__
 # define __{{MACRO_GUARD}}__
 
+# include <iostream>
+
 class {{CLASS}} {
 
 public:
