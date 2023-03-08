@@ -8,7 +8,8 @@
 
 {{CLASS}}::{{CLASS}}(const {{CLASS}}& copy)
 {
-	(void)copy;
+	*this = copy;
+
 	return ;
 }
 
@@ -17,8 +18,12 @@
 	return ;
 }
 
-{{CLASS}}& {{CLASS}}::operator=(const {{CLASS}}& assign)
+{{CLASS}}& {{CLASS}}::operator=(const {{CLASS}}& rhs)
 {
-	(void)assign;
+	if (this != &rhs)
+	{
+
+	}
+
 	return (*this);
 }
