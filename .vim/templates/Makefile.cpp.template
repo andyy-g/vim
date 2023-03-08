@@ -2,7 +2,7 @@ NAME			=	{{CURSOR}}
 
 COMPILER		=	c++
 
-FLAGS			=	-std=c++98 -Wall -Wextra -Werror -Wunreachable-code -g3
+CXXFLAGS		=	-std=c++98 -Wall -Wextra -Werror -Wunreachable-code -g3
 
 SRCDIR			=	./srcs
 
@@ -22,27 +22,42 @@ SRCS			=	$(addprefix $(SRCDIR)/,$(CPPFILES))
 
 OBJS			=	$(addprefix $(OBJDIR)/,$(CPPFILES:.cpp=.o))
 
+DEPS			=   $(OBJS:%.o=%.d)
 
-all				:	$(NAME)
+DEBUG			=	0
 
-$(NAME)			:	$(OBJDIR) $(OBJS) $(HEADERS)
-					@$(COMPILER) $(FLAGS) -I.$(HDIR) $(OBJS) -o $(NAME)
-					@echo "$(NAME) created"
+ifeq ($(DEBUG), 1)
+	CXXFLAGS += -g3
+	COMPILER = g++
+endif
+
+
+all							:	$(NAME)
+
+$(NAME)						:	$(OBJDIR) $(OBJS)
+								@$(COMPILER) $(CXXFLAGS) -I.$(HDIR) $(OBJS) -o $(NAME)
+								@echo "$(NAME) created"
 	
-$(OBJDIR)		:
-					mkdir -p $(OBJDIR)
+$(OBJDIR)					:
+								mkdir -p $(OBJDIR)
 
-$(OBJDIR)/%.o   :   $(SRCDIR)/%.cpp
-                    @$(COMPILER) -o $@ -c $< $(FLAGS) -I./$(HDIR)
+$(OBJDIR)/%.o				:   $(SRCDIR)/%.cpp $(OBJDIR)/.DEBUG.$(DEBUG)
+								@$(COMPILER) -o $@ -c $< $(FLAGS) -I./$(HDIR)
 
-clean           : 
-                    @rm -rf $(OBJDIR)
-                    @echo "object files removed"
+$(OBJDIR)/.DEBUG.$(DEBUG)	:
+								@rm -rf $(OBJDIR)/.DEBUG.*
+								@touch $(OBJDIR)/.DEBUG.$(DEBUG)
 
-fclean          :   clean
-                    @rm -rf $(NAME) 
-                    @echo "$(NAME) removed"
+clean						: 
+								@rm -rf $(OBJDIR)
+								@echo "object files removed"
 
-re              :   fclean all 
+fclean						:   clean
+								@rm -rf $(NAME) 
+								@echo "$(NAME) removed"
 
-.PHONY          :   clean fclean re all
+re							:   fclean all 
+
+.PHONY						:   clean fclean re all
+
+-include $(DEPS)
