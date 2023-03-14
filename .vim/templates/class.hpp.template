@@ -10,7 +10,7 @@ public:
 	{{CLASS}}(void);
 	{{CLASS}}(const {{CLASS}}& copy);
 	~{{CLASS}}(void);
-	{{CLASS}}& operator=(const {{CLASS}}& assign);
+	{{CLASS}}& operator=(const {{CLASS}}& rhs);
 
 private:
 
