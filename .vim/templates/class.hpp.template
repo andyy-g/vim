@@ -3,7 +3,8 @@
 
 # include <iostream>
 
-class {{CLASS}} {
+class {{CLASS}} 
+{
 
 public:
 
