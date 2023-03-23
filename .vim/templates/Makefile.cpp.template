@@ -2,7 +2,7 @@ NAME			=	{{CURSOR}}
 
 COMPILER		=	c++
 
-CXXFLAGS		=	-std=c++98 -Wall -Wextra -Werror -Wunreachable-code -g3
+CXXFLAGS		=	-std=c++98 -Wall -Wextra -Werror -Wunreachable-code -Wshadow
 
 SRCDIR			=	./srcs
 

@@ -6,14 +6,14 @@
 class {{CLASS}} 
 {
 
-public:
+	public:
 
-	{{CLASS}}(void);
-	{{CLASS}}(const {{CLASS}}& copy);
-	~{{CLASS}}(void);
-	{{CLASS}}& operator=(const {{CLASS}}& rhs);
+		{{CLASS}}(void);
+		{{CLASS}}(const {{CLASS}}& copy);
+		~{{CLASS}}(void);
+		{{CLASS}}& operator=(const {{CLASS}}& rhs);
 
-private:
+	private:
 
 };
 
