@@ -88,3 +88,6 @@ let g:coc_global_extensions = ['coc-tsserver']
 
 " F6 pour faire apparaitre le NERDTree
 nmap <F6> :NERDTreeToggle<CR>
+
+" Ctrl + B pour afficher et changer de buffer
+nmap <C-B> :buffers<CR>:buffer
