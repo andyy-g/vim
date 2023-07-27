@@ -1,7 +1,7 @@
 #ifndef __{{MACRO_GUARD}}__
 # define __{{MACRO_GUARD}}__
 
-# include <iostream>
+# include <string>
 
 class {{CLASS}} 
 {
